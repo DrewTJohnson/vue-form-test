@@ -53,7 +53,7 @@ function submitForm() {
         @input="updateValues"
     ></TextField>
     <MessageInput
-        field-title="Why do you like where you live?"
+        :field-title="`Why do you ` + (answerStore.answers.liveInNewYork === 'Yes' ? 'like living in New York?' : 'like where you live?')"
         placeholder="Because there's so much to do!"
         v-model="answerStore.answers.whyDoYouLikeIt"
         @input="updateValues"

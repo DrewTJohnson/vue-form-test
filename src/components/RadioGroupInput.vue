@@ -27,7 +27,6 @@ const camelize = (text) => {
           type="radio"
           :id="camelize(item)"
           :name="camelize(fieldTitle)"
-          :checked="(index === 0)"
           v-model="model"
           :value="item"
       />
