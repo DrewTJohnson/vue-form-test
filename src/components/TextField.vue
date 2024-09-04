@@ -20,11 +20,12 @@ const camelize = (text) => {
 <template>
   <div class="flex flex-col justify-start items-start gap-2">
     <label :for="camelize(fieldTitle)" class="font-bold tracking-wider">{{ fieldTitle }}</label>
+    <!--  basic text input  -->
     <input
         class="w-full rounded border border-sky-100 text-slate-50 bg-transparent py-1 px-2 placeholder-slate-50/25 focus:placeholder-transparent transition-all duration-300"
         type="text"
         :id="camelize(fieldTitle)"
-        :name="fieldTitle.toLowerCase()"
+        :name="camelize(fieldTitle)"
         :placeholder="placeholder"
         :required="required"
         v-model="model"

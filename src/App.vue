@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import Home from '@/pages/Home.vue'
 import FirstPage from '@/pages/FirstPage.vue'
 import SecondPage from '@/pages/SecondPage.vue'
+import ThirdPage from '@/pages/ThirdPage.vue'
 import NotFound from '@/pages/NotFound.vue'
 import Results from '@/pages/Results.vue'
 
@@ -10,14 +11,20 @@ const routes = {
   '/': Home,
   '/first-page': FirstPage,
   '/second-page': SecondPage,
+  '/third-page': ThirdPage,
   '/results': Results,
   '/404': NotFound
   // to add additional pages, add a new file to the /pages directory and follow the above format.
   // make sure to import the correct vue files to properly render the page(s).
 }
 
-// use hash instead of pathname so we get fancy between component transitions. Because we are using local storage for pinia data
-// we don't technically have to do this, but it looks nice :)
+/*
+* use hash instead of pathname so we get fancy between component transitions without external libraries.
+* Because we are using local storage for pinia data
+* we don't technically have to do this, but it looks nice :)
+* */
+
+
 const currentPath = ref(window.location.hash)
 
 window.addEventListener('hashchange', (e) => {
@@ -34,9 +41,9 @@ const currentView = computed(() => {
   <main class="h-screen bg-slate-800 text-white">
     <section class="h-full">
       <!--   transition to allow for the smooth transition between "pages" (which are really just components in this instance).   -->
-      <transition>
+      <Transition>
         <component :is="currentView" />
-      </transition>
+      </Transition>
     </section>
   </main>
 </template>

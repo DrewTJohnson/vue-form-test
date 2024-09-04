@@ -20,6 +20,7 @@ const camelize = (text) => {
 <template>
   <div class="flex flex-col gap-y-2">
     <label class="font-bold tracking-wider" :for="camelize(fieldTitle)">{{ fieldTitle }}</label>
+    <!--  basic textarea  -->
     <textarea
         class="border border-sky-100 rounded-lg bg-transparent p-2 placeholder-slate-50/25 focus:placeholder-transparent transition-all duration-300"
         :id="camelize(fieldTitle)"
