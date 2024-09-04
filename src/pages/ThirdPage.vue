@@ -2,6 +2,7 @@
 import {computed, ref} from 'vue'
 import CheckboxGroupInput from '@/components/CheckboxGroupInput.vue'
 import { useAnswerStore } from '@/stores/answers.js'
+import TextField from '@/components/TextField.vue'
 
 /*
 * This page component is set up in a very similar fashion to first-page and second-page
@@ -14,7 +15,8 @@ const invalid = ref(false)
 
 const updateValues = computed(() => {
   answerStore.updateAnswers({
-    typeOfPets: answerStore.answers.typeOfPets
+    typeOfPets: answerStore.answers.typeOfPets,
+    whatKinds: answerStore.answers.whatKinds
   })
 })
 
@@ -33,13 +35,20 @@ const submitForm = () => {
               `Cats`,
               `Dogs`,
               `Ostriches`,
-              `Other`,
-              `I don't have pets`
+              `Other`
           ]"
           v-model="answerStore.answers.typeOfPets"
           @change="updateValues"
           required
       ></CheckboxGroupInput>
+      <TextField
+          field-title="What other kind of pets do you have?"
+          placeholder="Mouse"
+          v-if="answerStore.answers.typeOfPets.includes('Other')"
+          v-model="answerStore.answers.whatKinds"
+          @input="updateValues"
+          required
+      ></TextField>
     </form>
     <div class="container-xs flex justify-between items-center w-full">
       <a href="/#/second-page" class="btn">Prev Questions</a>

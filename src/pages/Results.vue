@@ -21,11 +21,12 @@ function clearStore() {
     <p v-else>You live in <strong class="tracking-wide">{{ answerStore.answers.whereDoYouLive }}</strong> and you said you like it because "<strong class="tracking-wide">{{ answerStore.answers.whyDoYouLikeIt }}</strong>".</p>
     <div  v-if="answerStore.answers.typeOfPets.length > 0">
       <p class="font-bold mb-2">You have the following types of pets:</p>
-      <ul class="list-disc pl-8">
+      <ul class="list-disc pl-8 mb-2">
         <template v-for="item in answerStore.answers.typeOfPets">
           <li v-if="item">{{ item }}</li>
         </template>
       </ul>
+      <p v-if="answerStore.answers.whatKinds">You have pet not on the list! They are <strong>{{ answerStore.answers.whatKinds }}</strong></p>
     </div>
     <button class="btn mt-8" @click.prevent="clearStore">Start Over</button>
   </div>

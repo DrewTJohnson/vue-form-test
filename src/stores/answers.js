@@ -7,7 +7,8 @@ const defaults = () => ({
     liveInNewYork: 'Yes',
     whereDoYouLive: '',
     whyDoYouLikeIt: '',
-    typeOfPets: []
+    typeOfPets: [],
+    whatKinds: ''
 })
 
 // Get either the answers submitted from field components or the defaults if there's no data pushed from components
